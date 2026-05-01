@@ -27,7 +27,7 @@ export const SiteHeader = () => {
           <SheetContent side="left" className="bg-surface border-border w-72">
             <SheetHeader>
               <SheetTitle className="text-foreground">
-                <Link to="/"><img src={logo} alt="JAYA9" className="h-10" /></Link>
+                <Link to="/"><img src={logo} alt="Rex9" className="h-10" /></Link>
               </SheetTitle>
             </SheetHeader>
             <nav className="flex flex-col gap-1 mt-6">
@@ -50,7 +50,7 @@ export const SiteHeader = () => {
         </Sheet>
 
         <Link to="/" className="absolute left-1/2 -translate-x-1/2">
-          <img src={logo} alt="JAYA9" className="h-9" width={120} height={36} />
+          <img src={logo} alt="Rex9" className="h-9" width={120} height={36} />
         </Link>
 
         {user ? (
