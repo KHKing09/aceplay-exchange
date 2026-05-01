@@ -225,7 +225,7 @@ const Register = () => {
             <p className="text-xs text-muted-foreground mb-4">
               Make your first deposit now and claim your 100% Welcome Bonus.
             </p>
-            <Button variant="navy" className="w-full" onClick={() => navigate("/deposit")}>Deposit Now</Button>
+            <Button variant="navy" className="w-full" onClick={() => navigate("/dashboard")}>Go to Dashboard</Button>
           </div>
         </DialogContent>
       </Dialog>
