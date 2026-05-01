@@ -10,6 +10,8 @@ export interface Profile {
   currency: string;
   referral_code: string | null;
   balance: number;
+  status: string;
+  verified: boolean;
 }
 
 export function useAuth() {

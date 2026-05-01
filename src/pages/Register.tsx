@@ -84,11 +84,10 @@ const Register = () => {
 
     setLoading(true);
     const email = form.email && form.email.includes("@") ? form.email : `${form.username.toLowerCase()}@rex9.user`;
-    const { error } = await supabase.auth.signUp({
+    const { data: signUpData, error } = await supabase.auth.signUp({
       email,
       password: form.password,
       options: {
-        emailRedirectTo: window.location.origin,
         data: {
           username: form.username,
           phone: `${form.countryCode}${form.phone}`,
@@ -102,11 +101,19 @@ const Register = () => {
       toast.error(error.message);
       return;
     }
-    // With auto-confirm enabled, signUp returns a session — but ensure we're signed in
-    const { data: sessionData } = await supabase.auth.getSession();
-    if (!sessionData.session) {
-      await supabase.auth.signInWithPassword({ email, password: form.password });
+    // If auto-confirm is on, signUp returns a session directly
+    if (!signUpData.session) {
+      // Email confirmation required — sign in manually
+      const { error: signInError } = await supabase.auth.signInWithPassword({ email, password: form.password });
+      if (signInError) {
+        setLoading(false);
+        toast.error("Account created but login failed. Please log in manually.");
+        navigate("/login");
+        return;
+      }
     }
+    // Wait for auth state to propagate and profile trigger to complete
+    await new Promise((r) => setTimeout(r, 1500));
     setLoading(false);
     setSuccess(true);
     setTimeout(() => navigate("/dashboard"), 1500);

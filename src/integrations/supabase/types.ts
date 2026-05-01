@@ -92,8 +92,10 @@ export type Database = {
           id: string
           phone: string | null
           referral_code: string | null
+          status: string
           updated_at: string
           username: string
+          verified: boolean
         }
         Insert: {
           balance?: number
@@ -103,8 +105,10 @@ export type Database = {
           id: string
           phone?: string | null
           referral_code?: string | null
+          status?: string
           updated_at?: string
           username: string
+          verified?: boolean
         }
         Update: {
           balance?: number
@@ -114,8 +118,10 @@ export type Database = {
           id?: string
           phone?: string | null
           referral_code?: string | null
+          status?: string
           updated_at?: string
           username?: string
+          verified?: boolean
         }
         Relationships: []
       }
@@ -155,6 +161,126 @@ export type Database = {
           id?: string
           role?: Database["public"]["Enums"]["app_role"]
           user_id?: string
+        }
+        Relationships: []
+      }
+      withdrawals: {
+        Row: {
+          id: string
+          user_id: string
+          amount: number
+          payment_method: string
+          account_number: string
+          account_name: string
+          status: string
+          admin_note: string | null
+          created_at: string
+          processed_at: string | null
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          amount: number
+          payment_method: string
+          account_number: string
+          account_name?: string
+          status?: string
+          admin_note?: string | null
+          created_at?: string
+          processed_at?: string | null
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          amount?: number
+          payment_method?: string
+          account_number?: string
+          account_name?: string
+          status?: string
+          admin_note?: string | null
+          created_at?: string
+          processed_at?: string | null
+        }
+        Relationships: []
+      }
+      transactions: {
+        Row: {
+          id: string
+          user_id: string
+          type: string
+          amount: number
+          balance_before: number
+          balance_after: number
+          reference_id: string | null
+          reference_type: string | null
+          description: string | null
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          type: string
+          amount: number
+          balance_before?: number
+          balance_after?: number
+          reference_id?: string | null
+          reference_type?: string | null
+          description?: string | null
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          type?: string
+          amount?: number
+          balance_before?: number
+          balance_after?: number
+          reference_id?: string | null
+          reference_type?: string | null
+          description?: string | null
+          created_at?: string
+        }
+        Relationships: []
+      }
+      games: {
+        Row: {
+          id: string
+          name: string
+          category: string
+          provider: string | null
+          badge: string | null
+          color: string
+          icon: string
+          slug: string
+          enabled: boolean
+          sort_order: number
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          name: string
+          category: string
+          provider?: string | null
+          badge?: string | null
+          color?: string
+          icon?: string
+          slug: string
+          enabled?: boolean
+          sort_order?: number
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          name?: string
+          category?: string
+          provider?: string | null
+          badge?: string | null
+          color?: string
+          icon?: string
+          slug?: string
+          enabled?: boolean
+          sort_order?: number
+          created_at?: string
         }
         Relationships: []
       }
