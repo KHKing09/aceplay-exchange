@@ -1,0 +1,1 @@
+UPDATE public.site_settings SET value = '"Rex9"'::jsonb WHERE key = 'site_name';
