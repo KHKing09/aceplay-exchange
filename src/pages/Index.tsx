@@ -1,16 +1,45 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import { SiteHeader } from "@/components/layout/SiteHeader";
+import { BottomCTA } from "@/components/layout/BottomCTA";
+import { HeroBanner } from "@/components/home/HeroBanner";
+import { MarqueeBar } from "@/components/home/MarqueeBar";
+import { CategoryNav } from "@/components/home/CategoryNav";
+import { GameGrid } from "@/components/home/GameGrid";
+import { InfoTable } from "@/components/home/InfoTable";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
+  const [cat, setCat] = useState("cricket");
+
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
+    <div className="min-h-screen bg-background pb-20">
+      <SiteHeader />
+      <HeroBanner />
+      <MarqueeBar text="Bangladesh's most trusted online casino & cricket exchange 2026. Enjoy variety live casino games, BPL, ICC (One Day International). Join JAYA9 today!" />
+      <CategoryNav active={cat} onChange={setCat} />
+      <GameGrid category={cat} />
+      <InfoTable />
+
+      <section className="px-4 py-6 max-w-3xl mx-auto">
+        <h1 className="text-xl font-bold text-foreground mb-3">JAYA9 | Trusted Online Casino And Sports Betting App In Bangladesh To Play & Win</h1>
+        <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+          Welcome to JAYA9 Online Casino — your ultimate destination for premium online gaming.
+          Whether you are a casual gamer or a seasoned pro, JAYA9 offers a variety of games,
+          promotions, and a seamless gaming experience to cater to all types of players.
+          Our platform is designed with user-friendliness in mind, allowing you to immerse
+          yourself in high-quality entertainment right from the comfort of your home.
+        </p>
+        <h2 className="text-lg font-bold text-foreground mt-4 mb-2">Why Choose JAYA9?</h2>
+        <ul className="text-sm text-muted-foreground space-y-1.5 list-disc pl-5">
+          <li>100% Welcome Bonus up to 20,000 BDT for new players</li>
+          <li>Trusted local payment methods: Nagad, Bkash, Rocket, Upay</li>
+          <li>Live cricket, BPL, IPL exchange and full sportsbook</li>
+          <li>24/7 customer support via Live Chat, WhatsApp & Telegram</li>
+        </ul>
+      </section>
+
+      <BottomCTA />
     </div>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
