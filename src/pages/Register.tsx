@@ -97,12 +97,19 @@ const Register = () => {
         },
       },
     });
-    setLoading(false);
     if (error) {
+      setLoading(false);
       toast.error(error.message);
       return;
     }
+    // With auto-confirm enabled, signUp returns a session — but ensure we're signed in
+    const { data: sessionData } = await supabase.auth.getSession();
+    if (!sessionData.session) {
+      await supabase.auth.signInWithPassword({ email, password: form.password });
+    }
+    setLoading(false);
     setSuccess(true);
+    setTimeout(() => navigate("/dashboard"), 1500);
   }
 
   return (
