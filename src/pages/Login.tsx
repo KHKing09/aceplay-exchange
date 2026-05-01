@@ -30,7 +30,7 @@ const Login = () => {
     let email = form.identifier;
     if (!email.includes("@")) {
       // Synthesize the email used at signup
-      email = `${form.identifier.toLowerCase()}@jaya9.user`;
+      email = `${form.identifier.toLowerCase()}@rex9.user`;
     }
     const { error } = await supabase.auth.signInWithPassword({ email, password: form.password });
     setLoading(false);
@@ -48,7 +48,7 @@ const Login = () => {
       <div className="container max-w-md py-8 px-4">
         <div className="bg-surface rounded-xl border border-border shadow-card p-6">
           <h1 className="text-2xl font-bold text-foreground mb-1">Welcome Back</h1>
-          <p className="text-sm text-muted-foreground mb-6">Login to your JAYA9 account</p>
+          <p className="text-sm text-muted-foreground mb-6">Login to your Rex9 account</p>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <Label htmlFor="id">Username or Email</Label>

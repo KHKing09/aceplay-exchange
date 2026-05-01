@@ -1,5 +1,5 @@
 const rows: [string, React.ReactNode][] = [
-  ["Website", <a href="#" className="text-primary-glow underline">jaya9d.com</a>],
+  ["Website", <a href="#" className="text-primary-glow underline">rex9.com</a>],
   ["Established", "2021"],
   ["Games", "Online Slots, Live Casino, Fishing, Sportsbook (IPL, BPL), Crash, Arcade"],
   ["License", "Gaming Curacao"],

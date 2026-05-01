@@ -83,7 +83,7 @@ const Register = () => {
     }
 
     setLoading(true);
-    const email = form.email && form.email.includes("@") ? form.email : `${form.username.toLowerCase()}@jaya9.user`;
+    const email = form.email && form.email.includes("@") ? form.email : `${form.username.toLowerCase()}@rex9.user`;
     const { error } = await supabase.auth.signUp({
       email,
       password: form.password,
@@ -208,7 +208,7 @@ const Register = () => {
             </div>
             <h2 className="text-xl font-bold text-foreground mb-2">Registration Successful</h2>
             <p className="text-sm text-muted-foreground mb-2">
-              Welcome to JAYA9 — South Asia's most trusted online cricket exchange and casino platform.
+              Welcome to Rex9 — South Asia's most trusted online cricket exchange and casino platform.
             </p>
             <div className="flex justify-center gap-2 my-3">
               <span className="w-7 h-7 rounded-full bg-success text-success-foreground text-xs flex items-center justify-center font-bold">1</span>
